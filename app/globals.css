@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0D1117;
+
+  /* Solar brand colors */
+  --solar-orange: #F97316;
+  --solar-orange-dark: #EA6C0A;
+  --solar-yellow: #FACC15;
+  --solar-dark: #0D1117;
+  --solar-dark-2: #111827;
+  --solar-dark-3: #1F2937;
+  --solar-gray: #6B7280;
+  --solar-light: #F9FAFB;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-solar-orange: var(--solar-orange);
+  --color-solar-orange-dark: var(--solar-orange-dark);
+  --color-solar-yellow: var(--solar-yellow);
+  --color-solar-dark: var(--solar-dark);
+  --color-solar-dark-2: var(--solar-dark-2);
+  --color-solar-dark-3: var(--solar-dark-3);
+  --color-solar-gray: var(--solar-gray);
+  --color-solar-light: var(--solar-light);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-plus-jakarta), var(--font-inter), system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--solar-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--solar-orange);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--solar-orange);
+  color: white;
+}
+
+/* Utility classes */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    padding: 0 3rem;
+  }
+}
+
+/* Animation utilities */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; }
+  .fade-up.visible { transition: none; }
+}
